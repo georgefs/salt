@@ -2,7 +2,7 @@ zh_TW.UTF-8:
   locale.system
 
 
-/etc/screenrc
+/etc/screenrc:
   file.managed:
     - source: salt://my_env/screenrc
     - user: root

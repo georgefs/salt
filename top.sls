@@ -1,5 +1,5 @@
 base:
-  'localhost':
+  '*':
     - my_env
     - adex2
     - dashboard
