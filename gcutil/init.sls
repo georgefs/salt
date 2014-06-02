@@ -1,4 +1,4 @@
-/etc/google-cloud-sdk.tgz:
+/opt/google-cloud-sdk.tgz:
   file.managed:
     - source: salt://gcutil/google-cloud-sdk.tgz
     - user: root
@@ -8,16 +8,12 @@
 
 
 Decompress google cloud sdk:
-    cmd.run:
-        - name: tar -C /etc -zxvf /etc/google-cloud-sdk.tgz
-        - watch:
-            - file: /etc/google-cloud-sdk.tgz
-
-remove google cloud sdk tgz:
     cmd.wait:
-        - name: rm /etc/google-cloud-sdk.tgz
+        - name: tar -C /etc -zxvf /opt/google-cloud-sdk.tgz
         - watch:
-            - cmd: Decompress google cloud sdk
+            - file: /opt/google-cloud-sdk.tgz
+
+
 
 /etc/profile.d/gcutil.sh:
   file.managed:
